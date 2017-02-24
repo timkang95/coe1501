@@ -1,0 +1,36 @@
+Timothy Kang 
+Professor Farnan
+Algorithms
+November 7, 2015
+Documentation of carTracker.java
+
+For the project, I have created two indexMinPQs or indexable minimum priority queues. 
+This is done so they are pre sorted for mileage and price. Any other priority queue would 
+be redundant. Now the key for these PQs would have to be a double that compares each value 
+so holding the actually car information would be a challenge. 
+
+carNode.java works around this as it holds all the information. With the use of a hashmap,
+I can enter the Node.mileage or Node.price into the PQs, use the same index for the PQs for
+the hashmap as well. This way, whenever I need to find the minimum price, I can find the index 
+number of the price and use that number for the hashmap to retrieve all my information and 
+show it to the user. This makes the adding a new car function a breeze.
+
+For updating a value, all I would have to do is jump in my hashmap and find the vin number
+my user is searching for. When I find the correct vin number, I can use the index I saved 
+for that vin number and search it in the PQs. I can then delete what was saved in the PQ
+but replace it with a different double value, while using the same index number. The hashmap also 
+allows for easy updating.
+
+Removing is simple as I just delete the value in the PQs as well as destroy the image of it in
+the hash map.
+
+Retrivals were easy as they just had me get the first value of the PQ then, again, dive into the 
+hashmap for the correct value.
+
+Retrivals of specific user were just traversing through the PQ and comparing the hashmap value 
+with the users specific parameters of make and model. This is much easier and memory efficient, 
+then having to create new PQs for each make and model.
+
+So ultimately, I used 2PQs since there are 2 sets of things we are comparing, the mileage and price.
+Using the indexable PQ I could then store the index of the PQ and save it into a hashmap, allow me to 
+find all the information of the car.
